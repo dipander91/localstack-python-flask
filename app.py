@@ -1,5 +1,5 @@
 from markupsafe import escape
-from flask import Flask, abort, render_template, request
+from flask import Flask, abort, render_template, request, jsonify 
 import logging as logger
 import controller
 

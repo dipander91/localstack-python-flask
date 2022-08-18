@@ -9,10 +9,20 @@ logging.basicConfig(level=logging.INFO,
 
 boto3.setup_default_session(profile_name=config.AWS_PROFILE)
 
-ddb_client = boto3.client(
-    'dynamodb',
-    region_name=config.AWS_REGION,
-    endpoint_url=config.ENDPOINT_URL)
+#DynamoDB client as per the environment. In case of local development, ddb_client to use localstack dynamodb.
+try: 
+    if config.APP_ENVIRONMENT == 'local':
+        
+        ddb_client = boto3.client(
+            'dynamodb',
+            region_name=config.AWS_REGION,
+            endpoint_url=config.ENDPOINT_URL)
+    else:
+        ddb_client = boto3.client(
+            'dynamodb',
+            region_name=config.AWS_REGION)
+except Exception:
+    print("DynamoDB client error in controller")  
 
 def add_employee(id, name, city, age):
    response = ddb_client.put_item(
