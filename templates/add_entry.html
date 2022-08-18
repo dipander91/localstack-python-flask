@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block headings %}
+<h1>Add Employee</h1>
+{% endblock %}
+{% block content %}
+
+<form method="post">
+  <label for="employeeid">Employee ID:</label>
+  <input type="text" id="employeeid" name="employee_id" />
+  <br>
+  <label for="numberOfShares">Employee Name:</label>
+  <input type="text" id="employeename" name="employee_name" />
+  <br>
+  <label for="city">City:</label>
+  <input type="text" id="city" name="emp_city" />
+  <br>
+  <label for="Age">Employee Age: </label>
+  <input type="text" id="empage" name="emp_age" />
+  <br>
+  <button type="submit" name="submit">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% if response %}
+<table id="data" class="table table-striped">
+  <thead>
+    <tr>
+      <th>EmployeeId</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in response.values() %}
+      <tr>
+        <td>{{ data[0] }}</td>
+        <td>{{ data[1] }}</td>
+        <td>{{ data[2] }}</td>
+        <td>{{ data[3] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block headings %}
+<h1>Search Employee</h1>
+{% endblock %}
+{% block content %}
+
+<form method="post">
+  <label for="employeeid">Employee ID:</label>
+  <input type="text" id="employeeid" name="employee_id" />
+  <br>
+  <button type="submit" name="submit">Submit</button>
+</form>
+{% endblock %}
